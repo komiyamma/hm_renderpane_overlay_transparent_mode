@@ -9,8 +9,8 @@ namespace WebView2Sample
 {
     public partial class MainForm : Form
     {
-        private WebView2 webView;
-        private WebView2 webView2;
+        private WebView2 webViewA;
+        private WebView2 webViewB;
 
         public MainForm()
         {
@@ -43,28 +43,26 @@ namespace WebView2Sample
             this.TransparencyKey = System.Drawing.Color.Pink;
 
             // １つ目
-            webView = new WebView2();
-            webView.Dock = DockStyle.Fill; // フォーム全体にWebView2を配置
-            webView.DefaultBackgroundColor = System.Drawing.Color.Transparent; // 背景を透明にする
-            // Controls.Add(webView);
+            webViewA = new WebView2();
+            webViewA.Dock = DockStyle.Fill; 
+            webViewA.DefaultBackgroundColor = System.Drawing.Color.Transparent; // 背景を透明にする
 
-            tableLayoutPanel.Controls.Add(webView, 0, 0); // 0列目、0行目
+            tableLayoutPanel.Controls.Add(webViewA, 0, 0); // 0列目、0行目
 
-            // WebView2の初期化を待つ (重要)
-            await webView.EnsureCoreWebView2Async(null);
+            await webViewA.EnsureCoreWebView2Async(null);
             // Webページを読み込む
-            webView.CoreWebView2.Navigate(Path.Combine(assemblyFolder,"a.html")); // または、ローカルファイルへのパス
+            webViewA.CoreWebView2.Navigate(Path.Combine(assemblyFolder,"a.html")); // a.html
 
             // ２つ目
-            webView2 = new WebView2();
-            webView2.Dock = DockStyle.Fill; // フォーム全体にWebView2を配置
-            webView2.DefaultBackgroundColor = System.Drawing.Color.Transparent; // 背景を透明にする
+            webViewB = new WebView2();
+            webViewB.Dock = DockStyle.Fill; // フォーム全体にWebView2を配置
+            webViewB.DefaultBackgroundColor = System.Drawing.Color.Transparent; // 背景を透明にする
 
-            tableLayoutPanel.Controls.Add(webView2, 0, 1); // 0列目、1行目
+            tableLayoutPanel.Controls.Add(webViewB, 0, 1); // 0列目、1行目
 
-            await webView2.EnsureCoreWebView2Async(null);
+            await webViewB.EnsureCoreWebView2Async(null);
 
-            webView2.CoreWebView2.Navigate(Path.Combine(assemblyFolder, "b.html")); // または、ローカルファイルへのパス
+            webViewB.CoreWebView2.Navigate(Path.Combine(assemblyFolder, "b.html")); // b.html
         }
 
         [STAThread]
