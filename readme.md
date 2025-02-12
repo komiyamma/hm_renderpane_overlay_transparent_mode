@@ -7,4 +7,5 @@
   「他への干渉がなく、安全」と思われる。
 
 - 下図は、WebView2コンポーネントの背景が透けてる様子  
-  <img src="./image.png" style="border:20px solid #000000;">  
+  <img src="./image.png" style="border:20px solid #000000;">
+  
