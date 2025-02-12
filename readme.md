@@ -8,3 +8,5 @@
 
 - 下図は、WebView2コンポーネントの背景が透けてる様子  
   <img src="./image.png" style="border:20px solid #000000;">
+
+3
